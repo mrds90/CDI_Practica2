@@ -12,14 +12,14 @@ source .venv/bin/activate
 # Instalar ipykernel dentro del entorno virtual
 pip3 install ipykernel
 
-# # Instalar las dependencias desde requirements.txt
-# if [ -f requirements.txt ]; then
-#     while IFS= read -r package || [[ -n "$package" ]]; do
-#         pip3 install "$package" || echo "Error al instalar $package. Continuando con el siguiente paquete..."
-#     done < requirements.txt
-# else
-#     echo "El archivo requirements.txt no existe."
-# fi
+# Instalar las dependencias desde requirements.txt
+if [ -f requirements.txt ]; then
+    while IFS= read -r package || [[ -n "$package" ]]; do
+        pip3 install "$package" || echo "Error al instalar $package. Continuando con el siguiente paquete..."
+    done < requirements.txt
+else
+    echo "El archivo requirements.txt no existe."
+fi
 
 # # Desactivar el entorno virtual
 deactivate
